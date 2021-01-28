@@ -1,0 +1,34 @@
+#define pulsante_1 9
+#define pulsante_2 8
+#define led_1 6
+#define led_2 5
+#define led_3 4
+#define led_4 3
+int posizione=0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(led_1, OUTPUT);
+  pinMode(led_2, OUTPUT);
+  pinMode(led_3, OUTPUT);
+  pinMode(led_4, OUTPUT);
+  pinMode(pulsante_1, INPUT_PULLUP);
+  pinMode(pulsante_2, INPUT_PULLUP);
+}
+
+void loop()
+{
+ int stato_pulsante_1 = !digitalRead(pulsante_1);
+ int stato_pulsante_2 = !digitalRead(pulsante_2);
+ if(stato_pulsante_2 == 1 && posizione<15)
+    posizione++;
+ if(stato_pulsante_1==1 && posizione>0)
+    posizione--;
+ delay(300);
+ 
+ PORTD = posizione << 3;
+ digitalWrite(PORTD , HIGH);
+ Serial.println(posizione);
+
+}
