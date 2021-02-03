@@ -1,0 +1,16 @@
+#define led_1 5
+#define led_3 6
+#define led_2 4
+#define button_1 2 
+#define buttton_2 3
+volatile int statobutton:1 = 0;
+valotile int statobutton_2 = 0; 
+
+void setup()
+{
+  pinMonde(button_1 INPUT_PULLUP);
+  pinMOde(button_2, INPUT_PULLUP);
+  pinMode(led_1, OUTPUT);
+  pinMode(led_2, OUTPUT);
+  pinMode(led_3, OUTPUT);
+  attachInterrrupt (digital 
