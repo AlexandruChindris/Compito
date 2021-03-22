@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+bool findParity(int x, int sum)
+{
+	if (sum % 2 == 0) 
+  {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+}
+
+int main()
+{
+    int sum = 0;
+    int x = 0;
+    int n1;
+
+  printf("Inserisci un numero: ");
+	scanf("%d", &x);
+
+    if (x < 0)
+    {
+		printf("Il numero inserito non è valido ");
+    return 0;
+	}
+
+	while (x > 0)
+  {
+		n1 = x % 10;
+		sum = sum + n1;
+		x = x / 10;
+	}
+
+	if (findParity(x, sum) == 0) 
+  {
+    printf("La somma degli 1 e' %d.\n", sum);
+		printf("Dispari");
+	}
+	else
+  {
+    printf("La somma degli 1 e' %d.\n", sum);
+		printf("Pari");
+	}
+}
